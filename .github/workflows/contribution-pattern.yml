@@ -20,43 +20,44 @@ jobs:
       
       - name: Create Pattern Commits
         run: |
+          python3 << 'PYEOF'
+          import json
+          import os
+          from datetime import datetime, timedelta
+          
           # Pattern data (7 rows x 53 columns)
           # 0 = no commit, 1-4 = commit intensity (1=light, 4=dark)
-          python3 << 'PYTHON_SCRIPT'
-import json
-import sys
-import os
-from datetime import datetime, timedelta
-
-# Pattern embedded in Python
-pattern = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,4,4,4,4,0,0,4,4,4,0,0,0,4,4,4,0,0,0,4,4,4,0,0,4,0,0,0,4,0,0,4,4,4,0,0,4,0,0,0,4,0,4,4,4,4,4,0,0,0,0],[0,0,4,0,0,0,0,0,4,0,0,0,4,0,4,0,0,0,0,0,4,0,0,0,4,0,4,4,0,0,4,0,4,0,0,0,4,0,4,0,0,4,0,0,0,0,4,0,0,0,0,0,0],[0,0,0,4,4,4,0,0,4,4,4,4,4,0,4,0,4,4,4,0,4,4,4,4,4,0,4,0,4,0,4,0,4,4,4,4,4,0,4,4,4,0,0,0,0,0,4,0,0,0,0,0,0],[0,0,0,0,0,0,4,0,4,0,0,0,4,0,4,0,0,0,4,0,4,0,0,0,4,0,4,0,0,4,4,0,4,0,0,0,4,0,4,0,0,4,0,0,0,0,4,0,0,0,0,0,0],[0,0,4,4,4,4,0,0,4,0,0,0,4,0,0,4,4,4,0,0,4,0,0,0,4,0,4,0,0,0,4,0,4,0,0,0,4,0,4,0,0,0,4,0,4,4,4,4,4,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
-
-# Calculate start date
-today = datetime.now()
-days_since_sunday = (today.weekday() + 1) % 7
-last_sunday = today - timedelta(days=days_since_sunday)
-start_date = last_sunday - timedelta(weeks=52)
-
-commit_count = 0
-for col in range(len(pattern[0])):
-    for row in range(len(pattern)):
-        intensity = pattern[row][col]
-        if intensity > 0:
-            commit_date = start_date + timedelta(weeks=col, days=row)
-            
-            # Create multiple commits for darker shades
-            for i in range(intensity):
-                date_string = commit_date.strftime('%Y-%m-%d') + f' {12 + i}:00:00'
-                
-                with open('contribution.txt', 'a') as f:
-                    f.write(f'Contribution on {date_string}\n')
-                
-                os.system('git add contribution.txt')
-                os.system(f'git commit --date="{date_string}" -m "Pattern commit {commit_count}"')
-                commit_count += 1
-
-print(f'Created {commit_count} commits')
-PYTHON_SCRIPT
+          PATTERN = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[4,4,4,4,4,0,4,4,4,4,4,0,4,4,4,4,4,0,4,4,4,4,4,0,4,0,0,0,4,0,4,4,4,4,4,0,4,0,0,4,0,4,4,4,4,4,0,0,4,4,4,0,0],[4,0,0,0,0,0,4,0,0,0,4,0,4,0,0,0,0,0,4,0,0,0,4,0,4,4,0,0,4,0,4,0,0,0,4,0,4,0,4,0,0,0,0,4,0,0,0,4,0,0,0,4,0],[4,4,4,4,4,0,4,4,4,4,4,0,4,0,4,4,4,0,4,4,4,4,4,0,4,0,4,0,4,0,4,4,4,4,4,0,4,4,0,0,0,0,0,4,0,0,0,0,0,0,4,0,0],[0,0,0,0,4,0,4,0,0,0,4,0,4,0,0,0,4,0,4,0,0,0,4,0,4,0,0,4,4,0,4,0,0,0,4,0,4,0,4,0,0,0,0,4,0,0,0,0,0,4,0,0,0],[4,4,4,4,4,0,4,0,0,0,4,0,4,4,4,4,4,0,4,0,0,0,4,0,4,0,0,0,4,0,4,0,0,0,4,0,4,0,0,4,0,4,4,4,4,4,0,4,4,4,4,4,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
+          
+          # Calculate start date (53 weeks ago from today, on a Sunday)
+          today = datetime.now()
+          days_since_sunday = (today.weekday() + 1) % 7
+          last_sunday = today - timedelta(days=days_since_sunday)
+          start_date = last_sunday - timedelta(weeks=52)
+          
+          commit_count = 0
+          for col in range(len(PATTERN[0])):
+              for row in range(len(PATTERN)):
+                  intensity = PATTERN[row][col]
+                  if intensity > 0:
+                      commit_date = start_date + timedelta(weeks=col, days=row)
+                      
+                      # Create multiple commits for darker shades
+                      for i in range(intensity):
+                          date_string = commit_date.strftime('%Y-%m-%d') + f' {12 + i}:00:00'
+                          
+                          with open('contribution.txt', 'a') as f:
+                              f.write(f'Contribution on {date_string}\n')
+                          
+                          os.system('git add contribution.txt')
+                          os.system(f'git commit --date="{date_string}" -m "Pattern commit {commit_count}"')
+                          commit_count += 1
+          
+          if commit_count > 0:
+              print(f'Created {commit_count} commits')
+          else:
+              print('No commits to create. Pattern is empty.')
+          PYEOF
       
       - name: Push changes
         run: git push origin main
