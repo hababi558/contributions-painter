@@ -2,6 +2,8 @@
 
 Create custom text and patterns on your GitHub contribution graph! Draw designs, spell out words, or make pixel art using your commit history.
 
+![contributions](assets/2.png)
+
 ## 🌟 Features
 
 - 🖌️ **Visual Editor** - Draw patterns with click and drag
@@ -13,6 +15,8 @@ Create custom text and patterns on your GitHub contribution graph! Draw designs,
 ## 🚀 Live Demo
 
 Try it out: **[https://drbaph.is.a.dev/contributions-painter](https://drbaph.is.a.dev/contributions-painter)**
+
+![webapp](assets/1.png)
 
 ## 📖 How It Works
 
