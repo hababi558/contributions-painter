@@ -15,8 +15,8 @@ jobs:
       
       - name: Configure Git
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "saganaki22"
+          git config user.email "info@drbaph.dev"
       
       - name: Create Pattern Commits
         run: |
